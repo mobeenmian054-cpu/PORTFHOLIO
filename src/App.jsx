@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react'
 import {
   FiArrowDown, FiArrowRight, FiArrowUpRight, FiCheck, FiChevronRight,
-  FiCopy, FiExternalLink, FiGithub, FiMail,
+  FiCopy, FiMail,
   FiMenu, FiMonitor, FiLayers, FiCode, FiX,
 } from 'react-icons/fi'
 import './App.css'
 
 const email = 'mianmobeen13200@gmail.com'
-const githubUrl = 'https://github.com/mobeenmian054-cpu'
 
 const navLinks = [
   { label: 'About', href: '#about' },
@@ -25,8 +24,6 @@ const projects = [
     description: 'A booking experience built around structured client details, visa-related workflows, and an admin dashboard.',
     tags: ['React', 'Node.js', 'Express', 'MongoDB'],
     link: 'https://frountend-seven.vercel.app/',
-    source: 'https://github.com/mobeenmian054-cpu/frountend',
-    backend: 'https://github.com/mobeenmian054-cpu/backend',
     visual: 'booking',
     featured: true,
   },
@@ -38,8 +35,6 @@ const projects = [
     description: 'A writing platform with public stories, a simple editor, comments and reader-friendly article pages. Designed to make reading and sharing feel easy.',
     tags: ['React', 'Express', 'MongoDB'],
     link: 'https://blogs-six-wine.vercel.app/',
-    source: 'https://github.com/mobeenmian054-cpu/blogs',
-    backend: 'https://github.com/mobeenmian054-cpu/blogs-back',
     visual: 'blog',
   },
   {
@@ -188,8 +183,6 @@ function ProjectCard({ project }) {
           ) : (
             <span className="project-unavailable">Currently in development <FiChevronRight aria-hidden="true" /></span>
           )}
-          {project.source && <a className="project-source" href={project.source} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} frontend source on GitHub`}>Frontend code <FiGithub aria-hidden="true" /></a>}
-          {project.backend && <a className="project-source" href={project.backend} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} backend source on GitHub`}>Backend code <FiGithub aria-hidden="true" /></a>}
         </div>
       </div>
     </article>
@@ -357,7 +350,6 @@ function App() {
             <div className="contact-options">
               <div><span>DROP ME A LINE</span><a href={`mailto:${email}`}>{email} <FiArrowUpRight aria-hidden="true" /></a></div>
               <button type="button" className="copy-button" onClick={copyEmail} aria-label="Copy email address">{copied ? <FiCheck aria-hidden="true" /> : <FiCopy aria-hidden="true" />}{copied ? 'Copied!' : 'Copy email'}</button>
-              <div><span>FIND MY CODE</span><a href={githubUrl} target="_blank" rel="noopener noreferrer">GitHub profile <FiExternalLink aria-hidden="true" /></a></div>
             </div>
           </div>
         </section>
@@ -367,7 +359,7 @@ function App() {
         <div className="container footer-inner">
           <a href="#top" className="wordmark" aria-label="Mobeen Shahid - back to top">mobeen<span>.</span></a>
           <p>Designed & built with care by Mobeen Shahid.</p>
-          <div className="footer-links"><a href={githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in a new tab)"><FiGithub aria-hidden="true" /></a><a href={`mailto:${email}`} aria-label="Email Mobeen"><FiMail aria-hidden="true" /></a><a href="#top" className="back-top">Back to top ↑</a></div>
+          <div className="footer-links"><a href={`mailto:${email}`} aria-label="Email Mobeen"><FiMail aria-hidden="true" /></a><a href="#top" className="back-top">Back to top ↑</a></div>
         </div>
       </footer>
     </div>
