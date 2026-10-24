@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import {
-  FiArrowDown, FiArrowRight, FiArrowUpRight, FiCheck, FiChevronRight,
+  FiArrowDown, FiArrowRight, FiArrowUpRight, FiCheck,
   FiCopy, FiMail,
   FiMenu, FiMonitor, FiLayers, FiCode, FiX,
 } from 'react-icons/fi'
 import './App.css'
+import ProjectsSection from './Components/ProjectsSection'
 
 const email = 'mianmobeen13200@gmail.com'
 
@@ -13,50 +14,6 @@ const navLinks = [
   { label: 'Work', href: '#work' },
   { label: 'Expertise', href: '#expertise' },
   { label: 'Journey', href: '#journey' },
-]
-
-const projects = [
-  {
-    number: '01',
-    title: 'Appointment Booking Platform',
-    eyebrow: 'FULL-STACK WEB APP',
-    category: 'Full stack',
-    description: 'A booking experience built around structured client details, visa-related workflows, and an admin dashboard.',
-    tags: ['React', 'Node.js', 'Express', 'MongoDB'],
-    link: 'https://frountend-seven.vercel.app/',
-    visual: 'booking',
-    featured: true,
-  },
-  {
-    number: '02',
-    title: 'Story Nest — Writing & Stories',
-    eyebrow: 'PUBLISHING PLATFORM',
-    category: 'Full stack',
-    description: 'A writing platform with public stories, a simple editor, comments and reader-friendly article pages. Designed to make reading and sharing feel easy.',
-    tags: ['React', 'Express', 'MongoDB'],
-    link: 'https://blogs-six-wine.vercel.app/',
-    visual: 'blog',
-  },
-  {
-    number: '03',
-    title: 'Multi-Tools Hub',
-    eyebrow: 'DEVELOPER & PRODUCTIVITY TOOLS',
-    category: 'Tools',
-    description: 'A growing collection of practical browser-based utilities, built with usability and everyday workflows in mind.',
-    tags: ['React', 'Vite', 'Utilities'],
-    link: 'https://multitool-hub.pages.dev/',
-    visual: 'tools',
-  },
-  {
-    number: '04',
-    title: 'Zayvora Fashion Jewels',
-    eyebrow: 'E-COMMERCE · IN PROGRESS',
-    category: 'Products',
-    description: 'A premium jewelry storefront project exploring product discovery, a manageable catalog, and a WhatsApp-first checkout.',
-    tags: ['Astro', 'React', 'Supabase'],
-    link: null,
-    visual: 'jewelry',
-  },
 ]
 
 const expertise = [
@@ -120,78 +77,8 @@ function SectionIntro({ label, title, description }) {
   )
 }
 
-function ProjectArtwork({ project }) {
-  return (
-    <div className={`project-art project-art--${project.visual}`} aria-hidden="true">
-      {project.visual === 'booking' && (
-        <div className="art-browser booking-preview">
-          <div className="art-browser-bar"><span /><span /><span /><i>appointments / overview</i></div>
-          <div className="booking-preview-body">
-            <div className="booking-preview-menu"><div className="demo-logo">A.</div><b /><b /><b /><b /></div>
-            <div className="booking-preview-content">
-              <small>GOOD MORNING</small><strong>Everything in one place.</strong>
-              <div className="booking-demo-stat"><span>Appointment overview</span><b>—</b></div>
-              <div className="booking-demo-grid"><span /><span /><span /></div>
-              <div className="booking-demo-lines"><i /><i /><i /></div>
-            </div>
-          </div>
-        </div>
-      )}
-      {project.visual === 'blog' && (
-        <div className="blog-art-inner">
-          <div className="blog-overline">STORY NEST / WRITING</div>
-          <div className="blog-cover-image" />
-          <div className="blog-cover-title">A space for<br />stories<span>.</span></div>
-          <div className="blog-cover-foot">READ / WRITE / SHARE <FiArrowUpRight /></div>
-        </div>
-      )}
-      {project.visual === 'tools' && (
-        <div className="tool-art-inner">
-          <div className="tool-art-top"><span className="tool-art-mark">M<span>.</span></span><span>YOUR TOOLBOX, SIMPLIFIED</span></div>
-          <div className="tool-art-title">Small tools.<br /><em>Big impact.</em></div>
-          <div className="tool-art-widgets"><span>JSON {`{ }`}</span><span>↔ Convert</span><span>⌗ Encode</span></div>
-        </div>
-      )}
-      {project.visual === 'jewelry' && (
-        <div className="jewelry-art-inner">
-          <div className="jewelry-art-top">ZAYVORA <span>FASHION JEWELS</span></div>
-          <div className="jewelry-gem"><div /></div>
-          <div className="jewelry-art-copy">Everyday elegance.<small>A LITTLE LUXURY, ALWAYS</small></div>
-        </div>
-      )}
-      <span className="art-index">{project.number} / 04</span>
-    </div>
-  )
-}
-
-function ProjectCard({ project }) {
-  return (
-    <article className={`project-card ${project.featured ? 'project-card--featured' : ''}`}>
-      <ProjectArtwork project={project} />
-      <div className="project-details">
-        <div className="project-meta"><span>{project.eyebrow}</span><span>{project.number} / 04</span></div>
-        <h3>{project.title}</h3>
-        <p>{project.description}</p>
-        <div className="tag-list">
-          {project.tags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}
-        </div>
-        <div className="project-actions">
-          {project.link ? (
-            <a className="project-link" href={project.link} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${project.title} (opens in a new tab)`}>
-              Live project <FiArrowUpRight aria-hidden="true" />
-            </a>
-          ) : (
-            <span className="project-unavailable">Currently in development <FiChevronRight aria-hidden="true" /></span>
-          )}
-        </div>
-      </div>
-    </article>
-  )
-}
-
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [activeFilter, setActiveFilter] = useState('All')
   const [scrollProgress, setScrollProgress] = useState(0)
   const [copied, setCopied] = useState(false)
 
@@ -220,9 +107,6 @@ function App() {
     return () => document.body.classList.remove('menu-open')
   }, [menuOpen])
 
-  const visibleProjects = activeFilter === 'All'
-    ? projects
-    : projects.filter((project) => project.category === activeFilter)
 
   async function copyEmail() {
     try {
@@ -298,21 +182,7 @@ function App() {
           </div>
         </section>
 
-        <section id="work" className="work-section section-pad" aria-labelledby="work-title">
-          <div className="container">
-            <div className="work-header">
-              <SectionIntro label="THINGS I'VE BUILT" title={<>Selected <span>work.</span></>} description="A few projects that show how I approach real problems with design, code, and curiosity." />
-              <div className="filter-bar" role="group" aria-label="Filter projects">
-                {['All', 'Full stack', 'Tools', 'Products'].map((filter) => (
-                  <button type="button" key={filter} className={activeFilter === filter ? 'filter-btn filter-btn--active' : 'filter-btn'} aria-pressed={activeFilter === filter} onClick={() => setActiveFilter(filter)}>{filter}</button>
-                ))}
-              </div>
-            </div>
-            <div className="projects-grid" aria-live="polite">
-              {visibleProjects.map((project) => <ProjectCard key={project.number} project={project} />)}
-            </div>
-          </div>
-        </section>
+        <ProjectsSection />
 
         <section id="expertise" className="expertise-section section-pad container" aria-labelledby="expertise-title">
           <div className="expertise-heading">
