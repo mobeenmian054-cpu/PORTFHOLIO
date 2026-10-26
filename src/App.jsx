@@ -176,7 +176,7 @@ function App() {
             <a href="#expertise" className="text-link">A closer look at my skills <FiArrowUpRight aria-hidden="true" /></a>
           </div>
           <div className="about-stats" aria-label="Portfolio highlights">
-            <div><strong>04<span>+</span></strong><span>PROJECTS SHOWCASED</span></div>
+            <div><strong>05<span>+</span></strong><span>PROJECTS SHOWCASED</span></div>
             <div><strong>03</strong><span>CORE FOCUS AREAS</span></div>
             <div><strong>∞</strong><span>CURIOSITY TO LEARN</span></div>
           </div>
