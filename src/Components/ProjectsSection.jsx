@@ -53,7 +53,7 @@ export default function ProjectsSection() {
         <div className="showcase-heading">
           <div>
             <p className="eyebrow"><span className="eyebrow-line" /> SELECTED PROJECTS</p>
-            <h2 id="work-title" className="section-heading">Practical ideas.<br /><span>Built for the web.</span></h2>
+            <h2 id="work-title" className="section-heading">Selected work.</h2>
           </div>
           <p className="showcase-intro">A closer look at what I build, from everyday tools to full-stack applications.</p>
         </div>
@@ -62,7 +62,7 @@ export default function ProjectsSection() {
           <div className="featured-work-copy">
             <div className="featured-work-meta"><span className="main-project-label"><i aria-hidden="true" />Main project</span><span>01 / {projectTotal}</span></div>
             <p className="featured-work-category">TOOLS & PRODUCTIVITY</p>
-            <h3 id="tools-project-title">Multi-Tools<br />Hub<span>.</span></h3>
+            <h3 id="tools-project-title">Multi-Tools Hub<span>.</span></h3>
             <p className="featured-work-description">Useful tools for files, images and everyday work. One place to resize an image, work with PDFs, format code and get things done.</p>
             <ul className="featured-work-highlights" aria-label="Tools Hub highlights">
               <li>File & PDF utilities</li>
@@ -77,7 +77,7 @@ export default function ProjectsSection() {
           <a className="featured-work-preview" href="https://multitool-hub.pages.dev/" target="_blank" rel="noopener noreferrer" aria-label="Open the Multi-Tools Hub website preview (opens in a new tab)">
             <div className="preview-window">
               <div className="preview-window-bar" aria-hidden="true"><span className="preview-window-dots"><i /><i /><i /></span><span>multitool-hub.pages.dev</span><FiArrowUpRight /></div>
-              <img src="/projects/tools-hub.png" alt="Multi-Tools Hub homepage with image resizing, PDF merging and JSON formatting tools" width="1280" height="860" loading="lazy" decoding="async" />
+              <img src="/projects/tools-hub.png" alt="Multi-Tools Hub homepage with image resizing, PDF merging and JSON formatting tools" width="1280" height="860" loading="eager" decoding="async" />
             </div>
             <span className="preview-caption">A real look at the live product <FiArrowUpRight aria-hidden="true" /></span>
           </a>
