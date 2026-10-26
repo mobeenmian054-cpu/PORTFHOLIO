@@ -19,3 +19,29 @@
   .profile-location{display:block}
   .profile-arrow{display:grid}
 }
+
+/* Short, non-blocking motion; content is visible before animations start. */
+@keyframes hero-arrive{from{transform:translateY(12px)}to{transform:translateY(0)}}
+@keyframes portrait-arrive{from{transform:translateY(14px) rotate(0deg)}to{transform:translateY(0) rotate(2deg)}}
+@keyframes availability-pulse{0%,100%{box-shadow:0 0 0 0 #36845200}50%{box-shadow:0 0 0 5px #36845218}}
+@media(prefers-reduced-motion:no-preference){
+  .hero-content{animation:hero-arrive .65s ease-out both}
+  .profile-card{animation:portrait-arrive .8s ease-out both;transition:box-shadow .25s ease}
+  .availability>span{animation:availability-pulse 2.8s ease-in-out 3}
+  .button,.header-cta,.text-link,.featured-work-link,.copy-button{transition:transform .2s ease,background-color .2s ease,box-shadow .2s ease}
+  .button svg,.header-cta svg,.text-link svg,.supporting-work-footer svg,.featured-work-link svg{transition:transform .2s ease}
+  .supporting-work-card,.skill-card{transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+  .preview-window img{transition:transform .35s ease}
+  .primary-nav a{position:relative}
+  .primary-nav a:after{content:'';position:absolute;left:0;right:0;bottom:5px;height:2px;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
+  .primary-nav a:focus-visible:after{transform:scaleX(1)}
+}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+  .button:hover,.featured-work-link:hover,.copy-button:hover{transform:translateY(-2px);box-shadow:0 5px 14px #172a4512}
+  .button:hover svg,.header-cta:hover svg,.text-link:hover svg,.supporting-work-footer a:hover svg,.featured-work-link:hover svg{transform:translate(2px,-2px)}
+  .supporting-work-card:hover,.skill-card:hover{transform:translateY(-4px);border-color:#afc4ec;box-shadow:0 12px 25px #172a450a}
+  .featured-work-preview:hover img{transform:scale(1.025)}
+  .profile-card:hover{box-shadow:0 20px 45px #1a365418}
+  .primary-nav a:hover:after{transform:scaleX(1)}
+}
+@media(max-width:700px) and (prefers-reduced-motion:no-preference){.profile-card{animation-name:hero-arrive}}
