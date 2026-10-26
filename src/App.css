@@ -3,3 +3,19 @@
 @media(max-width:950px){.hero{gap:35px}.hero h1{font-size:42px}.about-grid{gap:40px}.skill-card{padding:20px}.hero-stack p{gap:8px}}
 @media(max-width:700px){html{scroll-padding-top:80px}.container{width:calc(100% - 36px)}.header-inner{height:66px}.wordmark{font-size:13px}.header-cta{display:none}.mobile-toggle{display:flex}.primary-nav{display:none;position:absolute;top:66px;left:0;right:0;background:#fafbfd;border-bottom:1px solid var(--line);padding:12px 22px;box-shadow:0 12px 20px #14223a0a}.primary-nav--open{display:flex;flex-direction:column;gap:0}.primary-nav a{padding:14px 0}.hero{padding-block:32px 38px;gap:28px;grid-template-columns:1fr}.availability{font-size:10px;margin-bottom:25px}.hero h1{font-size:clamp(34px,8vw,46px);letter-spacing:-1.6px}.hero-lead{font-size:13px;line-height:1.8;margin-bottom:20px}.hero .eyebrow{font-size:9px}.hero-actions{gap:8px}.button{font-size:11px;padding:11px 13px;gap:12px}.hero-stack{margin-top:23px;padding-top:16px}.hero-stack p{font-size:10px;gap:9px}.profile-card{transform:none;display:flex;align-items:center;padding:8px;gap:12px;border-radius:10px;box-shadow:none}.portrait-wrap{width:84px;height:84px;flex-shrink:0;border-radius:7px;aspect-ratio:auto}.profile-location{display:none}.profile-caption{flex:1;padding:0 6px 0 0;gap:7px}.profile-caption strong{font-size:13px}.profile-caption div>span{font-size:10px;line-height:1.5}.profile-arrow{display:none}.section-pad{padding-block:40px}.section-heading-row,.showcase-heading{display:block;margin-bottom:22px}h2{font-size:28px;letter-spacing:-1px}.section-heading-row>p,.showcase-intro{font-size:12px;margin-top:12px;max-width:100%}.section-heading-row>p br{display:none}.eyebrow{font-size:9px;margin-bottom:12px}.mern-banner{padding:16px;gap:10px;flex-wrap:wrap}.mern-banner p{font-size:11px;line-height:1.6}.mern-banner>div{flex:1;min-width:150px}.completion-badge{margin-left:47px}.skills-grid{grid-template-columns:1fr;gap:12px}.skill-card{padding:19px}.skill-top{margin-bottom:14px}.skill-card>p{min-height:0;margin-bottom:0}.tags{margin-top:14px}.workflow{align-items:start;flex-direction:column;gap:12px}.workflow p{font-size:11px}.workflow b{margin-inline:7px}.about-grid{grid-template-columns:1fr;gap:32px}.about-grid h2{font-size:27px}.about-description{font-size:13px}.contact-section{padding-block:36px}.contact-panel{padding:25px 20px;align-items:start;flex-direction:column;gap:22px}.contact-panel h2{font-size:27px}.contact-panel p:not(.eyebrow){font-size:12px}.email-link{font-size:12px;gap:8px}.site-footer{flex-wrap:wrap;font-size:9px;gap:13px}.site-footer>span:nth-child(2){display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+
+/* Give the portrait a substantial frame on desktop and mobile. */
+@media(min-width:701px){
+  .hero{grid-template-columns:1.2fr 1fr;gap:60px}
+  .portrait-wrap{aspect-ratio:.95}
+}
+@media(min-width:701px) and (max-width:950px){.hero{gap:30px}}
+@media(max-width:700px){
+  .profile-card{display:block;width:100%;max-width:400px;justify-self:center;padding:8px}
+  .portrait-wrap{width:100%;height:auto;aspect-ratio:1;border-radius:7px}
+  .profile-caption{padding:16px 8px 9px}
+  .profile-caption strong{font-size:15px}
+  .profile-caption div>span{font-size:11px}
+  .profile-location{display:block}
+  .profile-arrow{display:grid}
+}
